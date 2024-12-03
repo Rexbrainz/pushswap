@@ -6,7 +6,7 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:21:06 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/02 18:32:17 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/03 18:44:33 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,12 @@ static bool	check_str(char *ints)
 	return (false);
 }
 
-static struct s_stack	*check_argv(struct s_stack_info *l_info, char **argv)
+static void	check_argv(struct s_stack *a, char **argv)
 {
 	int					j;
 	int					*valid_ints;
 	char				**ints;
 	char				*joined_args;
-	struct s_stack		*a;
 
 	joined_args = build_up_args(argv);
 	if (!joined_args)
@@ -98,44 +97,50 @@ static struct s_stack	*check_argv(struct s_stack_info *l_info, char **argv)
 		if (!check_str(ints[j++]))
 			free_and_exit(ints);
 	free_mem(ints);
-	valid_ints = check_duplicates(joined_args, l_info);
+	valid_ints = check_duplicates(joined_args, a);
 	if (!valid_ints)
 		free_joined(joined_args);
-	a = init_stack_a(l_info, valid_ints);
+	init_stack_a(a, valid_ints);
 	free(valid_ints);
 	free(joined_args);
-	return (a);
+	//return (a);
 }
 
 int	main(int argc, char **argv)
 {
-	struct s_stack_info	l_info;
-	struct s_stack		*a;
-	struct s_stack		*b;
+	struct s_stack	a;
+	struct s_stack	b;
 
 	if (argc < 2)
 		return (0);
 	atexit(check_leaks);
-	a = check_argv(&l_info, argv + 1);
-	pb(&b, &a);
-	pb(&b, &a);
-	while (a->next)
+	init_stacks(&a, &b);
+	check_argv(&a, argv + 1);
+//	pb(&b, &a);
+//	pb(&b, &a);
+//	pb(&b, &a);
+//	rra(&a);
+//	rrr(&a, &b);
+//	ss(&a, &b);
+	struct s_node *curr;
+	curr = a.tail;
+	while (a.tail)
 	{
-		ft_printf("%d\n", a->value);
-		a = a->next;
-		if (a)
-			free(a->prev);
+		ft_printf("%d\n", a.tail->value);
+		curr = a.tail;
+		a.tail = a.tail->prev;
+		if (a.tail)
+			free(a.tail->next);
 	}
-	ft_printf("%d\n", a->value);
-	free(a);
-	struct s_stack *curr = b;
-	while (b)
+	free(curr);
+	curr = b.tail;
+	while (b.tail)
 	{
-		ft_printf("stack_b-> %d\n", b->value);
-		curr = b;
-		b = b->next;
-		if (b)
-			free(b->prev);
+		ft_printf("stack_b-> %d\n", b.tail->value);
+		curr = b.tail;
+		b.tail = b.tail->prev;
+		if (b.tail)
+			free(b.tail->next);
 	}
 	free(curr);
 	return (0);

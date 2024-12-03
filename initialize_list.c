@@ -6,92 +6,66 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 07:20:16 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/02 16:54:41 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/03 13:35:49 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-static bool	add_node(struct s_stack_info *l_info, struct s_stack **a, int num);
+static bool	add_node(struct s_stack *a, int num);
 
-struct s_stack	*init_stack_a(struct s_stack_info *l_info, int *valid_ints)
+void	init_stack_a(struct s_stack *a, int *valid_ints)
 {
 	int				i;
 	bool			check_status;
-	struct s_stack	*list;
 
-	list = NULL;
 	i = 0;
-	while (i < l_info->size)
+	while (i < a->size)
 	{
-		check_status = add_node(l_info, &list, valid_ints[i++]);
+		check_status = add_node(a, valid_ints[i++]);
 		if (!check_status)
 		{
-			while (list->next)
+			while (a->head->next)
 			{
-				list = list->next;
-				free(list->prev);
+				a->head = a->head->next;
+				free(a->head->prev);
 			}
-			free(list);
+			free(a->head);
 			error("Maloc failed.\n");
 		}
 	}
-	l_info->head = list;
-	return (list);
 }
 
-static bool	add_node(struct s_stack_info *l_info, struct s_stack **a, int num)
+static bool	add_node(struct s_stack *a, int num)
 {
-	struct s_stack	*new_node;
-	struct s_stack	*last_node;
+	struct s_node	*new_node;
 
-	new_node = (struct s_stack *) malloc(sizeof(struct s_stack));
+	new_node = (struct s_node *) malloc(sizeof(struct s_node));
 	if (!new_node)
 		return (false);
 	new_node->value = num;
-	if (*a == NULL)
+	new_node->next = NULL;
+	new_node->prev = NULL;
+	if (!a->head)
 	{
-		new_node->next = NULL;
-		new_node->prev = NULL;
-		*a = new_node;
+		a->head = new_node;
+		a->tail = new_node;
 	}
 	else
 	{
-		last_node = *a;
-		while (last_node->next)
-			last_node = last_node->next;
-		last_node->next = new_node;
-		new_node->prev = last_node;
-		new_node->next = NULL;
+		a->tail->next = new_node;
+		new_node->prev = a->tail;
+		a->tail = new_node;
 	}
-	l_info->tail = new_node;
 	return (true);
 }
-/*
-static void	add_to_head(struct s_dlist **list, struct s_dlist *new_node)
-{
-	if (*list == NULL)
-		*list = new_node;
-	else
-	{
-		new_node->next = *list;
-		*list = new_node;
-	}
-}
 
-static void	add_to_tail(struct s_dlist **list, struct s_dlist *new_node)
+void	init_stacks(struct s_stack *a, struct s_stack *b)
 {
-	struct s_dlist	*curr;
-
-	if (*list == NULL)
-		*list = new_node;
-	else
-	{
-		curr = *list;
-		while (curr->next)
-			curr = curr->next;
-		new_node->prev = curr;
-		curr->next = new_node;
-	}
+	a->head = NULL;
+	a->tail = NULL;
+	a->size = 0;
+	b->head = NULL;
+	b->tail = NULL;
+	b->size = 0;
 }
-*/

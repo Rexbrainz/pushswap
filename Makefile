@@ -10,7 +10,8 @@ LIBFT_DIR := ./libft
 LIBFT := $(LIBFT_DIR)/libft.a
 
 SRC := main.c	errors.c 	check_duplicates.c\
-   	   initialize_list.c	push.c 
+   	   initialize_list.c	push.c	swap.c\
+	   rotate.c	reverse_rotate.c	 
 OBJ := $(SRC:.c=.o)
 
 # Rules
