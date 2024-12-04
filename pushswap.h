@@ -6,7 +6,7 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:42:35 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/03 15:10:08 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/04 06:58:57 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,12 @@ void	pa(struct s_stack *a, struct s_stack *b);
 //		It returns nothing.
 void	pb(struct s_stack *b, struct s_stack *a);
 
-//	sa:	Takes a stack and swaps its first two elements, if there is one or less
-//		it does nothing.
+//	sa:	Takes a stack and and a bool flag, swaps its first two elements, 
+//		if there is one or less it does nothing.
 void	sa(struct s_stack *a);
 
-//	sb:	Takes a stack and swaps its first two elements, if there is one or less
-//		it does nothing.
+//	sb:	Takes a stack and a bool flag,  swaps its first two elements,
+//		 if there is one or less it does nothing.
 void	sb(struct s_stack *b);
 
 //	ss:	Takes two stacks, and swaps the first two element in each of the stacks

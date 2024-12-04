@@ -6,7 +6,7 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 08:55:25 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/02 16:43:02 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/04 08:00:44 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static bool	is_dup(int *ints, int len)
 	return (false);
 }
 
-int	*check_duplicates(const char *str, struct s_stack_info *a)
+int	*check_duplicates(const char *str, struct s_stack *a)
 {
 	char	**char_nums;
 	int		i;
@@ -73,8 +73,8 @@ int	*check_duplicates(const char *str, struct s_stack_info *a)
 		free(char_nums[i++]);
 	}
 	free(char_nums);
-	a->size = i;
 	if (is_dup(ints, i))
 		free_ints(ints);
+	a->size = i;
 	return (ints);
 }

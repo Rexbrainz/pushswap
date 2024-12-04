@@ -6,7 +6,7 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 06:30:27 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/03 12:09:45 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/04 06:59:10 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	sb(struct s_stack *b)
 
 void	ss(struct s_stack *a, struct s_stack *b)
 {
-	sa(a);
-	sb(b);
+	swap(a);
+	swap(b);
 	ft_printf("ss\n");
 }

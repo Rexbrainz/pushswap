@@ -6,7 +6,7 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:21:06 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/03 18:44:33 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/04 17:54:47 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,21 +119,23 @@ int	main(int argc, char **argv)
 //	pb(&b, &a);
 //	pb(&b, &a);
 //	pb(&b, &a);
-//	rra(&a);
-//	rrr(&a, &b);
+//	ra(&a);
+//	rb(&b);
+//	rr(&a, &b);
 //	ss(&a, &b);
 	struct s_node *curr;
-	curr = a.tail;
-	while (a.tail)
+	curr = a.head;
+	while (a.head)
 	{
-		ft_printf("%d\n", a.tail->value);
-		curr = a.tail;
-		a.tail = a.tail->prev;
-		if (a.tail)
-			free(a.tail->next);
+		ft_printf("%p\n", a.head->next);
+		curr = a.head;
+		a.head = a.head->next;
+		if (a.head)
+			free(a.head->prev);
 	}
 	free(curr);
-	curr = b.tail;
+	//curr = b.tail;
+/*
 	while (b.tail)
 	{
 		ft_printf("stack_b-> %d\n", b.tail->value);
@@ -143,5 +145,5 @@ int	main(int argc, char **argv)
 			free(b.tail->next);
 	}
 	free(curr);
-	return (0);
+*/	return (0);
 }
