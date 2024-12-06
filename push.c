@@ -6,7 +6,7 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 17:00:05 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/03 12:56:35 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/06 15:57:41 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,15 @@ static void	push(struct s_stack *dst, struct s_stack *src)
 void	pa(struct s_stack *a, struct s_stack *b)
 {
 	push(a, b);
+	a->new_size++;
+	b->new_size--;
 	ft_printf("pa\n");
 }
 
 void	pb(struct s_stack *b, struct s_stack *a)
 {
 	push(b, a);
+	b->new_size++;
+	a->new_size--;
 	ft_printf("pb\n");
 }

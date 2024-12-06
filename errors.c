@@ -6,7 +6,7 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 06:40:26 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/11/30 08:20:45 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/06 06:10:52 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error(const char *error_message)
 {
-	ft_printf(error_message);
+	write(2, error_message, ft_strlen(error_message));
 	exit(EXIT_FAILURE);
 }
 

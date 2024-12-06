@@ -11,7 +11,9 @@ LIBFT := $(LIBFT_DIR)/libft.a
 
 SRC := main.c	errors.c 	check_duplicates.c\
    	   initialize_list.c	push.c	swap.c\
-	   rotate.c	reverse_rotate.c	 
+	   rotate.c	reverse_rotate.c	sort.c\
+	   stack_sort.c	execute.c	execute_rrr.c\
+	   execute_rr.c
 OBJ := $(SRC:.c=.o)
 
 # Rules

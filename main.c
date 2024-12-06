@@ -6,18 +6,18 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:21:06 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/04 17:54:47 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/06 20:13:13 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 #include <stdio.h>
-
+/*
 void	check_leaks(void)
 {
 	system("leaks push_swap");
 }
-
+*/
 static void	free_joined(char *joined_str)
 {
 	free(joined_str);
@@ -113,9 +113,12 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	atexit(check_leaks);
+//	atexit(check_leaks);
 	init_stacks(&a, &b);
 	check_argv(&a, argv + 1);
+	sort(&a, &b);
+	ft_printf("a->new_size = %d\n", a.new_size);
+	ft_printf("b->new_size = %d\n", b.new_size);
 //	pb(&b, &a);
 //	pb(&b, &a);
 //	pb(&b, &a);
@@ -127,11 +130,23 @@ int	main(int argc, char **argv)
 	curr = a.head;
 	while (a.head)
 	{
-		ft_printf("%p\n", a.head->next);
+		ft_printf("index: %d\n", a.head->index);
+		ft_printf("cost->a: %d and pos->a: %d\n", a.head->cost, a.head->pos);
 		curr = a.head;
 		a.head = a.head->next;
 		if (a.head)
 			free(a.head->prev);
+	}
+	free(curr);
+		curr = b.head;
+	while (b.head)
+	{
+		ft_printf("index: %d and target_index: %d\n", b.head->index, b.head->target_node->index);
+		ft_printf("cost->b: %d and pos->b: %d\n", b.head->cost, b.head->pos/*, b.head->target_node->cost*/);
+		curr = b.head;
+		b.head = b.head->next;
+		if (b.head)
+			free(b.head->prev);
 	}
 	free(curr);
 	//curr = b.tail;
