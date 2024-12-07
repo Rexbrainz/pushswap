@@ -6,7 +6,7 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:21:06 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/06 20:13:13 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/07 18:24:29 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,48 +117,28 @@ int	main(int argc, char **argv)
 	init_stacks(&a, &b);
 	check_argv(&a, argv + 1);
 	sort(&a, &b);
-	ft_printf("a->new_size = %d\n", a.new_size);
-	ft_printf("b->new_size = %d\n", b.new_size);
-//	pb(&b, &a);
-//	pb(&b, &a);
-//	pb(&b, &a);
-//	ra(&a);
-//	rb(&b);
-//	rr(&a, &b);
-//	ss(&a, &b);
+	/*
 	struct s_node *curr;
+	int i;
+	i = 0;
+	while (b.head)
+	{
+		ft_printf("Stack B Node [%d]: %d\n", i++, b.head->value);
+		b.head = b.head->next;
+	}
+	i = 0;
 	curr = a.head;
 	while (a.head)
 	{
-		ft_printf("index: %d\n", a.head->index);
-		ft_printf("cost->a: %d and pos->a: %d\n", a.head->cost, a.head->pos);
-		curr = a.head;
+		ft_printf("Stack A Node [%d]: %d\n", i++, a.head->value);
 		a.head = a.head->next;
-		if (a.head)
-			free(a.head->prev);
 	}
-	free(curr);
-		curr = b.head;
-	while (b.head)
-	{
-		ft_printf("index: %d and target_index: %d\n", b.head->index, b.head->target_node->index);
-		ft_printf("cost->b: %d and pos->b: %d\n", b.head->cost, b.head->pos/*, b.head->target_node->cost*/);
-		curr = b.head;
-		b.head = b.head->next;
-		if (b.head)
-			free(b.head->prev);
-	}
-	free(curr);
-	//curr = b.tail;
-/*
-	while (b.tail)
-	{
-		ft_printf("stack_b-> %d\n", b.tail->value);
-		curr = b.tail;
-		b.tail = b.tail->prev;
-		if (b.tail)
-			free(b.tail->next);
-	}
-	free(curr);
-*/	return (0);
+	if (is_sorted(&a))
+		ft_printf("Yes\n");
+	else
+		ft_printf("NO!\n");
+	a.head = curr;
+	*/
+	free_stack(&a);
+	return (0);
 }

@@ -9,11 +9,10 @@ CFLAGS := -g -Wall -Wextra -Werror
 LIBFT_DIR := ./libft
 LIBFT := $(LIBFT_DIR)/libft.a
 
-SRC := main.c	errors.c 	check_duplicates.c\
-   	   initialize_list.c	push.c	swap.c\
-	   rotate.c	reverse_rotate.c	sort.c\
-	   stack_sort.c	execute.c	execute_rrr.c\
-	   execute_rr.c
+SRC := main.c	check_duplicates.c	initialize_list.c\
+   	   push.c	swap.c	rotate.c	reverse_rotate.c\
+   	   sort.c	 stack_sort.c	find_best_move.c\
+	   execute_moves.c	push_all_but_three.c free_and_error.c
 OBJ := $(SRC:.c=.o)
 
 # Rules

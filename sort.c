@@ -6,13 +6,13 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 06:18:06 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/06 13:11:45 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/07 16:43:15 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-static bool	is_sorted(struct s_stack *stack)
+bool	is_sorted(struct s_stack *stack)
 {
 	struct s_node	*top;
 
@@ -56,13 +56,6 @@ void	sort_three(struct s_stack *a)
 			sa(a);
 	}
 }
-/*
-void	push_sort(struct s_stack *a, struct s_stack *b)
-{
-	if (!b->head || !a->head)
-		return ;
-}
-*/
 
 void	sort(struct s_stack *a, struct s_stack *b)
 {

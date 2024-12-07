@@ -6,7 +6,7 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:42:35 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/06 18:55:23 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/07 17:46:49 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,18 +113,27 @@ void	rrr(struct s_stack *a, struct s_stack *b);
 //			accordingly.
 void	sort(struct s_stack *a, struct s_stack *b);
 
+//	is_sorted: Takes stack a and checks if it is sorted, returns a bool.
+bool	is_sorted(struct s_stack *stack);
+
 //	sort_three:	Takes a stack with three nodes and sorts them.
 void	sort_three(struct s_stack *a);
 
-//	push_sort:	Takes both stacks and sorts them.
+//	stack_sort:	Takes both stacks and sorts them.
 void	stack_sort(struct s_stack *a, struct s_stack *b);
 
-//	assign_cost:	
+//	push_all_but_three:	Takes both stacks and pushes nodes from a to b.
+//						It pushes to b such that half of stack b seems
+//						roughly sorted.
+void	push_all_but_three(struct s_stack *a, struct s_stack *b);
+
+//	find_best_move: Indentifies the cheapest node to move.
 void	find_best_move(struct s_stack *a, struct s_stack *b);
 
-//	execute_rrr:
-void	execute_rrr(struct s_stack *a, struct s_stack *b);
+//	execute_moves: Takes both stacks, execute pushswap instructions based
+//					on the cheapest move to make.
+void	execute_moves(struct s_stack *a, struct s_stack *b);
 
-//	execute_rr:
-void	execute_rr(struct s_stack *a, struct s_stack *b);
+//	free_stacks: Takes stack a and frees it.
+void	free_stack(struct s_stack *a);
 #endif
