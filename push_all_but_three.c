@@ -6,7 +6,7 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 12:30:30 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/07 18:44:40 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/09 06:16:51 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ void	push_all_but_three(struct s_stack *a, struct s_stack *b)
 
 	pushed = 0;
 	i = 0;
-	if (a->size > 99)
+	if (a->size > 6)
 	{
-		while (i < a->size && pushed < a->size / 4)
+		while (i < a->size && pushed < a->size / 2)
 		{
-			if (a->head->index <= a->size / 4)
+			if (a->head->index <= a->size / 2)
 			{
 				pb(b, a);
 				pushed++;
@@ -33,7 +33,6 @@ void	push_all_but_three(struct s_stack *a, struct s_stack *b)
 			i++;
 		}
 	}
-	if (a->size - pushed > 3)
-		while (a->size - pushed++ > 3)
-			pb(b, a);
+	while (a->size - pushed++ > 3)
+		pb(b, a);
 }

@@ -6,7 +6,7 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 08:18:42 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/07 17:07:18 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/09 17:06:34 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void	stack_sort(struct s_stack *a, struct s_stack *b)
 	{
 		assign_pos(a, b);
 		assign_targets(a, b);
-		find_best_move(a, b);
+		find_cheapest_move(a, b);
 		execute_moves(a, b);
 	}
 	if (!is_sorted(a))
@@ -131,10 +131,8 @@ void	stack_sort(struct s_stack *a, struct s_stack *b)
 		min_index = find_min_index(a->head);
 		assign_pos(a, b);
 		if (min_index->pos > a->size / 2)
-		{
 			while (a->size - min_index->pos++ > 0)
 				rra(a);
-		}
 		else
 			while (min_index->pos--)
 				ra(a);

@@ -6,7 +6,7 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:42:35 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/07 17:46:49 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/09 17:07:12 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ void	stack_sort(struct s_stack *a, struct s_stack *b);
 void	push_all_but_three(struct s_stack *a, struct s_stack *b);
 
 //	find_best_move: Indentifies the cheapest node to move.
-void	find_best_move(struct s_stack *a, struct s_stack *b);
+void	find_cheapest_move(struct s_stack *a, struct s_stack *b);
 
 //	execute_moves: Takes both stacks, execute pushswap instructions based
 //					on the cheapest move to make.

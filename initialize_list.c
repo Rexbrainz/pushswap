@@ -6,7 +6,7 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 07:20:16 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/03 13:35:49 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/09 12:29:24 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ static bool	add_node(struct s_stack *a, int num)
 	if (!new_node)
 		return (false);
 	new_node->value = num;
+	new_node->index = 0;
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	if (!a->head)
