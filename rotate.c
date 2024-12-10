@@ -6,13 +6,13 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 08:33:45 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/03 16:47:31 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/10 08:49:06 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-static	void	rotate(struct s_stack *stack)
+void	rotate(struct s_stack *stack)
 {
 	struct s_node	*last;
 

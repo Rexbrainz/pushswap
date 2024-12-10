@@ -6,13 +6,13 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 06:30:27 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/04 06:59:10 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/10 08:43:04 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-static void	swap(struct s_stack *stack)
+void	swap(struct s_stack *stack)
 {
 	struct s_node	*first;
 	struct s_node	*third;
