@@ -1,0 +1,81 @@
+By the end of this read, you would understand an algorithm for pushswap
+which I consider to be too good and efficient to not have an article
+or blog post written about it.
+A senior colleague by name Ilies introduced me to it, which he explained was an
+improvement to the popular Turk algorithm. I wished that i could
+find a resource that explains this algorithm in detail, to that
+he sent me a link to this github account 
+https://github.com/mcombeau/push_swap/blob/main/README.md
+which is the origin of the algorithm, the author did a good job
+in writing a brief information for all the functions used in the
+Algorithm. But I wanted more, something detailed and direct, i did
+not want to dig through all his files and functions which could
+be confusing at times to follow and track, and this is the reason
+I am writing this, to add to the good job mcombeau did and to help
+you access and understand this efficient algorithm easily.
+
+				CASES FOR PUSHSWAP
+Just as the Turk, and other algorithms you need to make cases for 
+the numbers of ints to sort.
+i.		If the number of ints to sort is 1, you simply return as it is
+	already sorted.
+ii.		If the number of ints to sort is 2, check if they are sorted, if
+	so, you return as the stack is already sorted. If not you simply
+	swap and you are good.
+iii.	If the number of elements is 3 and not sorted, search for the
+	max number in the list, and send it to the bottom of the stack 
+	depending on its position in the stack, if it is the top value in
+	the stack, simply rotate the stack, if it is in the middle, 
+	reverse rotate the stack, else it is already in the right position.
+	Now check if the stack is sorted, if not, swap the first two and 
+	you are good.
+iv.		If the number of ints to sort is bigger than 3, here comes the
+	algorithm in detail.
+				Algorithm in detail
+First:
+	We need to push all ints in stack A to B except 3. If the number of
+	ints to sort is bigger than 6, we must push to stack B in such a way
+	that stack B appears roughly sorted.
+Mechanics:
+	Apply indices to the integers in Stack A, before pushing to B:
+		Imagine the numbers are sorted, (or you may need to sort them if
+		you choose) where will each number be in the Stack if sorted, that
+		is their indices. Basically, write a function that applies 
+		these indices to each int in the stack. I started incrementing from
+		one, do as you choose.
+	Push to B:
+		Using the applied indices, push integers whose indices are lower
+		than the stack size of A divide by 2. If the current value or int's index
+		is higher than stack size A divide by 2, rotate the stack and check
+		 the next, this is done while the number of ints pushed to B is less than
+		stack size of A divide by 2.
+		When the loop breaks, push everything to B until stack A remains 3.
+		This way the Stack B ends up looking roughly sorted. Lower indices
+		numbers are positioned at the end of the list and the rest at the upper
+		top of stack B.
+	Sort 3:
+		Sort the 3 left in Stack A using the sort three function created
+		for sort 3.
+	Push back to A:
+	this is the meat of the algorithm, and this is where you need to pay the most
+	attention, our intention is to sort A while we push back to it. By the 
+	time we are done, A would be sorted, but depending on the state of 
+	stack A, we may need to do a few rotations or reverse-rotations to get
+	the smallest int to the top of the stack.
+	First:
+	Assign positions from 0 to all nodes in A and do the same to the nodes in B.
+	that is, if Stack A has 7 ints, the first node is assigned the value 0
+	and the last node is assigned the value 6. if we have 10 nodes in B, the
+	first has the value 0 and 10 has the value 9. This is crucial to our
+	algorithm as it allows us find the cost and cheapest move to make.
+	Second:
+	Assign targets. For every node in B, a target node or value in A must be 
+	assigned to it. Any node or int in A where the node or value in B will be placed
+	on top of it, is the target to the node in B. This is found by using our previously
+	assigned indices or you could use the values themselves if you choose.
+	value in B will placed on top
+	To push back to A, such that when you are done, A is sortedall stack B nodes needs targets in Stack A, using the indices
+	previously assigned. After the targets assigned, 
+	Targets are the ints/values/nodes in A, where the ints/values or nodes
+	in B will be placed in front of to make A sortedyou need to assign targets to all nodes in stack B
+		
