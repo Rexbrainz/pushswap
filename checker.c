@@ -6,7 +6,7 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:32:50 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/10 13:40:53 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/11 10:23:46 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,5 @@ int	main(int argc, char **argv)
 	else
 		ft_printf("KO\n");
 	free_stack(&a);
-	free_stack(&b);
 	return (0);
 }

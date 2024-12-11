@@ -17,8 +17,7 @@ SRC :=	main.c	check_arguments.c	check_duplicates.c\
 		push_all_but_three.c free_and_error.c
 BONUS_SRC := checker.c	check_arguments.c	check_duplicates.c\
 		initialize_list.c	push.c	swap.c	rotate.c reverse_rotate.c\
-		stack_sort.c sort.c find_cheapest_move.c execute_moves.c free_and_error.c\
-		push_all_but_three.c
+		free_and_error.c push_all_but_three.c
 
 OBJ := $(SRC:.c=.o)
 BONUS_OBJ := $(BONUS_SRC:.c=.o)
@@ -48,7 +47,7 @@ fclean: clean
 	@$(MAKE) -C $(LIBFT_DIR) fclean
 	@rm -f $(NAME) $(BONUS_NAME)
 
-re: fclean all
+re: fclean all bonus
 
 # Phony Targets
 .PHONY: all clean fclean re bonus

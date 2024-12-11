@@ -6,35 +6,11 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 07:20:16 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/09 12:29:24 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/11 10:37:04 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
-
-static bool	add_node(struct s_stack *a, int num);
-
-void	init_stack_a(struct s_stack *a, int *valid_ints)
-{
-	int				i;
-	bool			check_status;
-
-	i = 0;
-	while (i < a->size)
-	{
-		check_status = add_node(a, valid_ints[i++]);
-		if (!check_status)
-		{
-			while (a->head->next)
-			{
-				a->head = a->head->next;
-				free(a->head->prev);
-			}
-			free(a->head);
-			error("Maloc failed.\n");
-		}
-	}
-}
 
 static bool	add_node(struct s_stack *a, int num)
 {
@@ -59,6 +35,28 @@ static bool	add_node(struct s_stack *a, int num)
 		a->tail = new_node;
 	}
 	return (true);
+}
+
+void	init_stack_a(struct s_stack *a, int *valid_ints)
+{
+	int				i;
+	bool			check_status;
+
+	i = 0;
+	while (i < a->size)
+	{
+		check_status = add_node(a, valid_ints[i++]);
+		if (!check_status)
+		{
+			while (a->head->next)
+			{
+				a->head = a->head->next;
+				free(a->head->prev);
+			}
+			free(a->head);
+			error("Error\n");
+		}
+	}
 }
 
 void	init_stacks(struct s_stack *a, struct s_stack *b)

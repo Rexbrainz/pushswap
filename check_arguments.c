@@ -6,12 +6,11 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:21:06 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/11 09:45:52 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/11 10:24:29 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
-#include <stdio.h>
 
 static void	free_joined(char *joined_str)
 {

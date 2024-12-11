@@ -6,14 +6,15 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 08:55:25 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/06 19:41:17 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/11 10:29:43 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-static void	free_ints(int *ints)
+static void	free_ints(const char *str, int *ints)
 {
+	free((char *)str);
 	free(ints);
 	error("Error\n");
 }
@@ -74,7 +75,7 @@ int	*check_duplicates(const char *str, struct s_stack *a)
 	}
 	free(char_nums);
 	if (is_dup(ints, i))
-		free_ints(ints);
+		free_ints(str, ints);
 	a->size = i;
 	return (ints);
 }

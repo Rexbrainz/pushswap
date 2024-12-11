@@ -6,28 +6,11 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 06:18:06 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/07 16:43:15 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/11 10:43:40 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
-
-bool	is_sorted(struct s_stack *stack)
-{
-	struct s_node	*top;
-
-	top = stack->head;
-	while (top)
-	{
-		if (top->next)
-		{
-			if (top->value > top->next->value)
-				return (false);
-		}
-		top = top->next;
-	}
-	return (true);
-}
 
 void	sort_three(struct s_stack *a)
 {
