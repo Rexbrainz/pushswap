@@ -6,18 +6,13 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:21:06 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/10 08:12:32 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/11 09:45:52 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 #include <stdio.h>
-/*
-void	check_leaks(void)
-{
-	system("leaks push_swap");
-}
-*/
+
 static void	free_joined(char *joined_str)
 {
 	free(joined_str);
@@ -93,7 +88,7 @@ void	check_argv(struct s_stack *a, char **argv)
 	j = 0;
 	while (ints[j])
 		if (!check_str(ints[j++]))
-			free_and_exit(ints);
+			free_and_exit(ints, joined_args);
 	free_mem(ints);
 	valid_ints = check_duplicates(joined_args, a);
 	if (!valid_ints)

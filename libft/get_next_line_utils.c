@@ -6,7 +6,7 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 11:42:28 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/10/23 08:55:13 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/11 09:22:51 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,10 @@ char	*find_first_c(char *s, unsigned char c)
 
 char	*fetch_line(char *dst, const char *src, size_t dstsize)
 {
-	size_t	srclen;
 	size_t	index;
 
 	if (!dst || !src)
 		return (NULL);
-	srclen = my_strlen(src);
 	index = 0;
 	if (dstsize > 0)
 	{

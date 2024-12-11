@@ -6,7 +6,7 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:42:35 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/09 17:07:12 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/11 09:45:18 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSHSWAP_H
 
 # include <stdlib.h>
+# include <unistd.h>
 # include <stdbool.h>
 # include <limits.h>
 # include "libft/libft.h"
@@ -38,15 +39,23 @@ struct s_stack
 	struct s_node	*best_move_node;
 };
 
-//	error:	Takes an error message, prints it and exits the program.
+//	check_argv:	Takes the arguments passed, checks if they are valid,
+//				if valid, initialized stack a with them.
+void	check_argv(struct s_stack *a, char **argv);
+
+//	error:	Takes an error message, prints it to STDERR and exits the program.
 void	error(const char *error_message);
 
 //	free_mem:	Frees the memory to free and exits the program.
 void	free_mem(char **mem_to_free);
 
-//	free_and_exit:	Takes memory to free, frees it, prints a message to the
-//					console and exits the program.
-void	free_and_exit(char **mem_to_free);
+//	free_and_exit:	Takes memory blocks to free, frees them
+//					and  prints a message to STDERR  and exits the program.
+void	free_and_exit(char **mem_to_free, char *str);
+
+// handle_checker_error: Frees the two stacks when the checker finds
+// 							an error.
+void	handle_checker_error(struct s_stack *a, struct s_stack *b);
 
 //	check_duplicates:	Conversts the string passed to it to array of ints
 //						 and checks if any of the numbers are duplicates. 
@@ -66,6 +75,9 @@ void	init_stacks(struct s_stack *a, struct s_stack *b);
 //				valid.
 void	init_stack_a(struct s_stack *a, int *valid_ints);
 
+//	push:	Takes two stacks and pushes the first node in src to dst.
+void	push(struct s_stack *dst, struct s_stack *src);
+
 //	pa:	Takes two stacks and pushes the top of b to the top of a.
 //		It returns nothing.
 void	pa(struct s_stack *a, struct s_stack *b);
@@ -73,6 +85,9 @@ void	pa(struct s_stack *a, struct s_stack *b);
 //	pb:	Takes two stacks and pushes the top of a to the top of b.
 //		It returns nothing.
 void	pb(struct s_stack *b, struct s_stack *a);
+
+//	swap:	Takes a stack and swaps it's first two nodes.
+void	swap(struct s_stack *stack);
 
 //	sa:	Takes a stack, swaps its first two elements, 
 //		if there is one or less it does nothing.
@@ -87,6 +102,9 @@ void	sb(struct s_stack *b);
 //		with one or less elements in it.
 void	ss(struct s_stack *a, struct s_stack *b);
 
+//	rotate:	Takes a stack and rotates it, such that the first becomes the last.
+void	rotate(struct s_stack *stack);
+
 //	ra:	Takes stack a, shifts all its element up by one and makes the first 
 //		element become the last.
 void	ra(struct s_stack *a);
@@ -98,8 +116,12 @@ void	rb(struct s_stack *b);
 //	rr:	Performs ra and rb at the same time.
 void	rr(struct s_stack *a, struct s_stack *b);
 
-//	ra:	Takes stack a, shifts all its element down by one and makes the last 
-//		element become the first.
+//	reverse_rotate:	Takes a stack and rotates it, such that the last becomes
+//					 the first.
+void	reverse_rotate(struct s_stack *stack);
+
+//	rra:	Takes stack a, shifts all its element down by one
+//			and makes the last element become the first.
 void	rra(struct s_stack *a);
 
 //	rrb:	Takes stack b, shifts all its element down by one and makes the last
@@ -127,13 +149,14 @@ void	stack_sort(struct s_stack *a, struct s_stack *b);
 //						roughly sorted.
 void	push_all_but_three(struct s_stack *a, struct s_stack *b);
 
-//	find_best_move: Indentifies the cheapest node to move.
+//	find_cheapest_move: Indentifies the cheapest node to move.
 void	find_cheapest_move(struct s_stack *a, struct s_stack *b);
 
 //	execute_moves: Takes both stacks, execute pushswap instructions based
 //					on the cheapest move to make.
 void	execute_moves(struct s_stack *a, struct s_stack *b);
 
-//	free_stacks: Takes stack a and frees it.
+//	free_stack: Takes stack a and frees it.
 void	free_stack(struct s_stack *a);
+
 #endif

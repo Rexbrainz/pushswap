@@ -6,7 +6,7 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 16:09:35 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/10/12 12:21:12 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/11 09:18:30 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	index = 0;
 	size = ft_strlen(s);
-	if (start >= size || start < 0)
+	if (start >= size)
 		return (ft_strdup(""));
 	substr_len = size - start;
 	if (substr_len < len)

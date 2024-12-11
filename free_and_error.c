@@ -6,7 +6,7 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 06:40:26 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/10 09:12:43 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/11 09:43:32 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ void	free_mem(char **mem_to_free)
 	free(mem_to_free);
 }
 
-void	free_and_exit(char **mem_to_free)
+void	free_and_exit(char **mem_to_free, char *str)
 {
+	free(str);
 	free_mem(mem_to_free);
 	error("Error\n");
 }
