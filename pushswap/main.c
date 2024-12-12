@@ -12,13 +12,6 @@
 
 #include "pushswap.h"
 
-/*
-	Check leaks:
-		1. dorker make re 
-		2. dorker valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
-	
-	If you modify code, do 1 again.
-*/
 int	main(int argc, char **argv)
 {
 	struct s_stack	a;
