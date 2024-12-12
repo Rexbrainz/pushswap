@@ -1,3 +1,4 @@
+			PUSHSWAP ALGORITHM
 By the end of this read, you would understand an algorithm for pushswap
 which I consider to be too good and efficient to not have an article
 or blog post written about it.
