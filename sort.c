@@ -6,7 +6,7 @@
 /*   By: sudaniel <sudaniel@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 06:18:06 by sudaniel          #+#    #+#             */
-/*   Updated: 2024/12/11 10:43:40 by sudaniel         ###   ########.fr       */
+/*   Updated: 2024/12/13 13:51:43 by sudaniel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,8 @@ void	sort_three(struct s_stack *a)
 			sa(a);
 	}
 	else
-	{
 		if (!is_sorted(a))
 			sa(a);
-	}
 }
 
 void	sort(struct s_stack *a, struct s_stack *b)
