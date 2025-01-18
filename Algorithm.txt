@@ -35,9 +35,9 @@ iv.		If the number of ints to sort is bigger than 3, here comes the
 			Algorithm in detail
 First:
 	We need to apply indices to all ints, to help us with efficiency.
-	We need to push all ints in stack A to B except 3. If the number of
-	ints to sort is bigger than 6, we must push to stack B in such a way
-	that stack B appears roughly sorted.
+	We need to push all ints in stack A to B except 3. For example
+	If the number of ints to sort is bigger than 6, we must push to stack B
+	in such a way that stack B appears roughly sorted.
 Mechanics:
 	Apply indices to the integers in Stack A, before pushing to B:
 		Imagine the numbers are sorted, (or you may need to sort them if
@@ -57,7 +57,7 @@ Mechanics:
 			If the current value or int's index is higher than stack size A divide by 2, 
 			rotate the stack and check the next, this is done while the number of ints 
 			pushed to B is less than or equal to stack size of A divide by 2.
-		push everything to B until stack A remains 3.
+		Push everything to B until stack A remains 3.
 		This way Stack B ends up looking roughly sorted. Lower indices
 		numbers are positioned at the lower half of stack B and the rest at the upper
 		half of stack B.
@@ -104,23 +104,23 @@ Example from the author:
 		target_pos starts at INT_MAX
 		B index: 3
 		A contains indexes: 9 4 2 1 0
-		9 > 3 && 9 < INT_MAX 	: target_pos updated to 9
+		9 > 3 && 9 < INT_MAX 		: target_pos updated to 9
 		4 > 3 && 4 < 9 			: target pos updated to 4
 		2 < 3 && 2 < 4			: no update!
 	So target_pos needs to be the position of index 4, since it is
 	the closest index.
-	--- Example:
+	--- Example 2 when there is no bigger index for index of B:
 		target_pos starts at INT_MAX
 		B index: 20
 		A contains indexes: 16 4 3
-		16 < 20					: no update! target_pos = INT_MAX
-		4  < 20					: no update! target_pos = INT_MAX
-		3  < 20					: no update! target_pos = INT_MAX
-	... target_pos stays at INT MAX, need to switch strategies.
-		16 < 20					: target_pos updated to 20
-		4  < 20					: target_pos updated to 4
-		3  < 20					: target_pos updated to 3
-	So target_pos needs to be the position of index 3, since that is that is the end of the stack.
+		16 < 20				: no update! target_pos = INT_MAX
+		4  < 20				: no update! target_pos = INT_MAX
+		3  < 20				: no update! target_pos = INT_MAX
+	... target_pos stays at INT MAX, there is need to switch strategies.
+		16 < 20				: target_pos updated to 16
+		 4 < 20				: target_pos updated to 4
+		 3 < 20				: target_pos updated to 3
+	So target_pos needs to be the position of index 3, since that is the end of the stack and it is the smallest index.
   3:
 	Find the best or cheapest move to execute. To do this we need to assign costs to all
 	ints in stack A and stack B. This helps us decide what move to make 
