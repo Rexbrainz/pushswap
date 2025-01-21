@@ -54,6 +54,8 @@ Mechanics:
 		If the stack size is bigger than 6.
 			Using the applied indices, push integers whose indices are lower
 			than or equal to the stack size of A divide by 2. 
+			For example stack size of A / 2 is 3. we always compare the indices of each
+			number against 3, until stack A is left with 3 ints in it.
 			If the current value or int's index is higher than stack size A divide by 2, 
 			rotate the stack and check the next, this is done while the number of ints 
 			pushed to B is less than or equal to stack size of A divide by 2.
